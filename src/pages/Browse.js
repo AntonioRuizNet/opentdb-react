@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 
 import Results from "../components/Results";
 import NavBar from "../components/NavBar";
+import Pagination from "../components/Pagination";
 
 export default function Browse() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [resultsPerPage] = useState(10);
 
     useEffect(() => {
         const fetchResults = async () => {
@@ -20,7 +23,15 @@ export default function Browse() {
             });
         };
         fetchResults();
-  }, []);
+  }, []); 
+
+    // Get current results
+    const indexLast = currentPage * resultsPerPage;
+    const indexFirst = indexLast - resultsPerPage;
+    const currentResults = data.slice(indexFirst, indexLast);
+  
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
         
     return (
@@ -28,7 +39,13 @@ export default function Browse() {
             <NavBar />
             <div className="container">
                 <h2> Browse Questions </h2>
-                <Results results={data} loading={loading} />
+                <Results results={currentResults} loading={loading} />
+                <Pagination
+                    resultsPerPage={resultsPerPage}
+                    totalResults={data.length}
+                    paginate={paginate}
+                    currentPage={currentPage}
+                    />
             </div>
     </React.Fragment>
     )
