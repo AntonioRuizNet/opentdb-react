@@ -11,7 +11,7 @@ function unescapeHtml(safe) {
         .replace(/&#039;/g, "'");
 }
 
-const Results = ({ results, loading}) => {
+const Results = ({ results, loading, orderResults }) => {
     let keyId = 0;
 
     if (loading) {
@@ -22,7 +22,7 @@ const Results = ({ results, loading}) => {
         <table className="table table-bordered tableBrowse">
             <thead>
                 <tr>
-                    <th><b>Category <a href="#" className="orderTable"><FaSort /></a></b></th>
+                    <th><b>Category <a href="#" className="orderTable" onClick={() => orderResults()}><FaSort /></a></b></th>
                     <th><b>Type</b></th>
                     <th><b>Difficulty</b></th>
                     <th><b>Question</b></th>

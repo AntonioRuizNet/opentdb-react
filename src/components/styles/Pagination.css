@@ -1,6 +1,6 @@
 
   .pagination {
-    display: inline-block;
+    display: inline-block!important;
     padding-left: 0;
     margin: 21px 0;
     border-radius: 4px;
