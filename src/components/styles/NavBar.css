@@ -1,0 +1,31 @@
+
+a:link {
+    text-decoration: none;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .nav > li {
+    position: relative;
+    display: block;
+  }
+  
+  .nav > li > a {
+    margin-right: 8px;
+    margin-top: 15px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  
+  .nav {
+    border: 0px;
+    border-color: transparent;
+    background-color: #262a35;
+    padding: 8px;
+  }
+  
