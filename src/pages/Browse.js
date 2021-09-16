@@ -31,7 +31,6 @@ export default function Browse() {
 
   // Search results
   const searcher = (key, filter) => {
-    console.log(key + " " + filter);
     let newData = data;
     if (key != "") {
       if (filter === "category")
